@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  #protect_from_forgery prepend: true
+  before_action :authenticate_usuario!, only: [:new, :edit, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -12,9 +15,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def edit
-  end
-
   def create
     @post = Post.new(post_params)
 
@@ -23,6 +23,9 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update

@@ -1,13 +1,13 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('assets/home-bg.jpg')">
+<header class="intro-header" style="background-image: url(<%= asset_path 'home-bg.jpg' %>)">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
                     <h1>Xaver Blog 2</h1>
                     <hr class="small">
-                    <span class="subheading">Un blog dedicado a la tecnologia.</span>
+                    <span class="subheading">Un blog hecho para aprender Rails 5.</span>
                 </div>
             </div>
         </div>
@@ -18,27 +18,21 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                    </h2>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-            </div>
-            <hr>
+            <% @posts.each do |post| %>
+                <div class="post-preview">
+                    <%= link_to post do %>
+                        <h2 class="post-title">
+                          <%= post.titulo %>
+                      </h2>
+                      <h3 class="post-subtitle">
+                          <%= post.descripcion.truncate(150) %>
+                      </h3>
+                    <% end %>
+                    <p class="post-meta">Posteado por <a href="#"><%= post.usuario.email %></a> el <%= post.created_at %></p>
+                </div>
+                <hr>
+            <% end %>
+
             <!-- Pager -->
             <ul class="pager">
                 <li class="next">
