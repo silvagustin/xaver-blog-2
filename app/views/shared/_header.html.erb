@@ -7,7 +7,14 @@
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <%#= link_to "Inicio", root_path, class: "navbar-brand" %>
+
+            <% if current_usuario.present? %>
+                <%= link_to "Cerrar sesion", destroy_usuario_session_path, method: :delete, data: { confirm: 'Estas seguro?' }, class: "navbar-brand" %>
+            <% else %>
+              <%= link_to "Iniciar sesion", new_usuario_session_path, class: "navbar-brand" %>
+              <%= link_to "Crear cuenta", new_usuario_registration_path, class: "navbar-brand" %>
+            <% end %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,15 +23,11 @@
                 <li>
                     <%= link_to "Inicio", root_url %>
                 </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="post.html">Sample Post</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <% if can? :create, Post %>
+                    <li>
+                        <%= link_to "Crear Post", new_post_path %>
+                    </li>
+                <% end %>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

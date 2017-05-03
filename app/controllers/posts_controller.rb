@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  #protect_from_forgery prepend: true
   before_action :authenticate_usuario!, only: [:new, :edit, :destroy]
+  load_and_authorize_resource param_method: :post_params
+  skip_authorize_resource only: [:index, :show]
 
   def index
     @posts = Post.all
@@ -42,10 +41,6 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
-
     def post_params
       params.require(:post).permit(:titulo, :descripcion, :cuerpo)
     end
