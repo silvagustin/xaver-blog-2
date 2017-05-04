@@ -13,7 +13,7 @@
                 <%= link_to "Cerrar sesion", destroy_usuario_session_path, method: :delete, data: { confirm: 'Estas seguro?' }, class: "navbar-brand" %>
             <% else %>
               <%= link_to "Iniciar sesion", new_usuario_session_path, class: "navbar-brand" %>
-              <%= link_to "Crear cuenta", new_usuario_registration_path, class: "navbar-brand" %>
+              <%#= link_to "Crear cuenta", new_usuario_registration_path, class: "navbar-brand" %>
             <% end %>
         </div>
 
