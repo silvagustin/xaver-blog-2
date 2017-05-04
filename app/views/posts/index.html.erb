@@ -29,7 +29,7 @@
                       </h3>
                     <% end %>
                     
-                    <p class="post-meta">Posteado por <a href="#"><%= post.usuario.email %></a> el <%= creado_el(post) %></p>
+                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", post.usuario %> el <%= creado_el(post) %></span>
                 </div>
                 <hr>
             <% end %>
