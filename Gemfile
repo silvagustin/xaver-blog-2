@@ -58,3 +58,4 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
