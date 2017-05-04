@@ -28,7 +28,7 @@
                           <%= post.descripcion.truncate(150) %>
                       </h3>
                     <% end %>
-                    <p class="post-meta">Posteado por <a href="#"><%= post.usuario.email %></a> el <%= post.created_at %></p>
+                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", post.usuario %> el <%= post.created_at %></p>
                 </div>
                 <hr>
             <% end %>
