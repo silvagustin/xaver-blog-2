@@ -29,7 +29,7 @@
                       </h3>
                     <% end %>
                     
-                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", post.usuario %> el <%= l post.created_at, format: :long %></span>
+                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", post.usuario %> el <%= l post.created_at, format: :custom %></span>
                 </div>
                 <hr>
             <% end %>
