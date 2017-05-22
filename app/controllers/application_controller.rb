@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   alias_method :current_user, :current_usuario
 
   rescue_from CanCan::AccessDenied do |exception|
-  	redirect_to posts_path
+  	if current_usuario.present?
+  		redirect_to admin_path
+  	else
+  		redirect_to posts_path
+  	end
   end
 
   def after_sign_in_path_for(resource)

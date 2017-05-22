@@ -9,11 +9,7 @@ class Ability
     if user.es_admin?
       can :manage, :all
     else
-      if user.email.blank? # si no hay nada en email es porque es un usuario invitado
-        can :read, Post
-      else
-        can :crud, Post, usuario_id: user.id
-      end
+      can :crud, Post, usuario_id: user.id
     end
   end
 end
