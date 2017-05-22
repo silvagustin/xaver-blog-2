@@ -13,5 +13,7 @@ module XaverBlog2
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.available_locales = :es
     config.i18n.default_locale = :es
+
+    #Faker::Config.locale = :faker_es
   end
 end

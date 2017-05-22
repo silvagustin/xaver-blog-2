@@ -24,7 +24,7 @@
 
                 <% if current_usuario.present? %>                
                     <li>
-                        <%= link_to "Admin", admin_path, class: "navbar-brand" %>
+                        <%= link_to "Admin", admin_posts_path, class: "navbar-brand" %>
                     </li>
                     <% if can? :create, Post %>
                         <li>

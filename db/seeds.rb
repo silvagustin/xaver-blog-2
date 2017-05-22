@@ -2,7 +2,7 @@
 Post.delete_all
 Usuario.delete_all
 
-# Usuario #######################################################################
+# Usuario #####################################################################
 Usuario.create(email: "oby_lacueva@hotmail.com",
 			   password: "gaspar",
 			   password_confirmation: "gaspar")

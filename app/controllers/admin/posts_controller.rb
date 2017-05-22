@@ -1,18 +1,16 @@
-class PostsController < ApplicationController
-  before_action :authenticate_usuario!, only: [:new, :edit, :destroy]
+class Admin::PostsController < Admin::AdminController
+	before_action :authenticate_usuario!
   load_and_authorize_resource param_method: :post_params
-  skip_authorize_resource only: [:index, :show]
-
+  
   def index
-    @posts = Post.all
+    @usuario = current_usuario
+    @posts = current_usuario.posts
   end
 
   def show
-    @post_anterior = Post.anterior(@post.id)
-    @post_siguiente = Post.siguiente(@post.id)
   end
 
-  def new
+	def new
     @post = Post.new
   end
 
@@ -20,7 +18,7 @@ class PostsController < ApplicationController
     @post = current_usuario.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to admin_post_path(@post), notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -31,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-       redirect_to @post, notice: 'Post was successfully updated.'
+       redirect_to admin_post_path(@post), notice: 'Post was successfully updated.'
     else
       render :edit        
     end
@@ -39,7 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url
+    redirect_to :admin_posts
   end
 
   private

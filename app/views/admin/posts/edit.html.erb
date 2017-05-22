@@ -1,0 +1,8 @@
+<% provide(:titulo, "Editar Post") %>
+
+<%= render 'form' %>
+
+<div class="container">
+	<%= link_to 'Volver', admin_posts_path, class: "btn btn-success" %>
+	<%= link_to 'Ver', admin_post_path(@post), class: "btn btn-info" %>	
+</div>
