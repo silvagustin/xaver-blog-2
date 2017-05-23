@@ -28,7 +28,7 @@
 			                  <%= post.descripcion.truncate(150) %>
 			              </h3>
 			            <% end %>
-			            <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", admin_path %> el <%= post.created_at %></p>
+			            <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", admin_path %> el <%= fecha_de_publicacion(post) %></p>
                 
                 <% if can? :crud, post %>
 			          	<%= link_to "Editar", edit_admin_post_path(post), class: "btn btn-warning" %>
