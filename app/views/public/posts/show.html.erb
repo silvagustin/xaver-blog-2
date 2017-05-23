@@ -7,7 +7,7 @@
                 <div class="post-heading">
                     <h1><%= @post.titulo %></h1>
                     <h2 class="subheading"><%= @post.descripcion %></h2>
-                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", autore_path(@post.usuario) %> el <%= @post.created_at %></span>
+                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", autore_path(@post.usuario) %> el <%= fecha_de_publicacion(@post) %></span>
                 </div>
             </div>
         </div>
