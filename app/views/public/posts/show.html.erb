@@ -35,27 +35,11 @@
         <!-- Pager -->
         <ul class="pager">
             <li class="previous">
-                <% if @post_anterior.present? %>
-                    <%= link_to (@post_anterior) do %>
-                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
-                    <% end %>
-                <% end %>
+                <%= link_to "<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Anterior".html_safe, @post.anterior if @post.anterior.present? %>
             </li>
 
             <li class="next">
-                <%#= link_to (@post_siguiente if @post_siguiente.present?) do %>
-                    <!--                        
-                        Funciona bien SALVO porque en el ultimo post que sigue apareciendo y redireccionando a ese mismo post en lugar de desaparecer.
-
-                        Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    -->
-                <%# end %>
-
-                <% if @post_siguiente.present? %>
-                    <%= link_to (@post_siguiente) do %>
-                        Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    <% end %>
-                <% end %>
+                <%= link_to "Siguiente <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, @post.siguiente if @post.siguiente.present? %>
             </li>
         </ul>
     </div>

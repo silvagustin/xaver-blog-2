@@ -3,11 +3,14 @@ class Post < ApplicationRecord
 
 	validates :titulo, :cuerpo, presence: true
 
-	def self.anterior(id)
-		where("id < ?", id).last
+	scope :anteriores, -> (post) { where("id < ?", post.id) }
+	scope :siguientes, -> (post) { where("id > ?", post.id) }
+
+	def anterior
+		Post.anteriores(self).last
 	end
 
-	def self.siguiente(id)
-		where("id > ?", id).first
+	def siguiente
+		Post.siguientes(self).first
 	end
 end
