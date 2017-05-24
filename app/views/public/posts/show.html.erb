@@ -35,11 +35,11 @@
         <!-- Pager -->
         <ul class="pager">
             <li class="previous">
-                <%= link_to "<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Anterior".html_safe, @post.anterior if @post.anterior.present? %>
+                <%= link_to "<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Anterior".html_safe, @post_anterior if @post.anterior.present? %>
             </li>
 
             <li class="next">
-                <%= link_to "Siguiente <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, @post.siguiente if @post.siguiente.present? %>
+                <%= link_to "Siguiente <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, @post_siguiente if @post.siguiente.present? %>
             </li>
         </ul>
     </div>

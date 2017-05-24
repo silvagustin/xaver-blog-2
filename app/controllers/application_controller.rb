@@ -7,8 +7,9 @@ class ApplicationController < ActionController::Base
   	if current_usuario.present?
   		redirect_to admin_path
   	else
-  		redirect_to posts_path
+  		redirect_to root_path
   	end
+    #redirect_to root_path
   end
 
   def after_sign_in_path_for(resource)

@@ -6,6 +6,8 @@ class Public::PostsController < Public::PublicController
   end
 
   def show
+    @post_anterior = @post.anterior
+    @post_siguiente = @post.siguiente
   end
 
   private

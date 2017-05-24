@@ -1,5 +1,4 @@
-class Admin::PostsController < Admin::AdminController
-	before_action :authenticate_usuario!
+class Admin::PostsController < Admin::AdminController	
   load_and_authorize_resource param_method: :post_params
   
   def index
