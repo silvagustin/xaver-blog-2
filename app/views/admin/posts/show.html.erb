@@ -7,7 +7,7 @@
                 <div class="post-heading">
                     <h1><%= @post.titulo %></h1>
                     <h2 class="subheading"><%= @post.descripcion %></h2>
-                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", admin_path %> el <%= fecha_de_publicacion(@post) %></span>
+                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", public_root_path %> el <%= fecha_de_publicacion(@post) %></span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <%= link_to "Volver", admin_path, class: "btn btn-info" %>
+                <%= link_to "Volver", public_root_path, class: "btn btn-info" %>
 
                 <% if can? :crud, @post %>
                     <%= link_to "Editar", edit_admin_post_path(@post), class: "btn btn-warning" %>

@@ -6,12 +6,10 @@ Rails.application.routes.draw do
   	resources :autores, only: :show
   end
 
-  get 'admin', to: 'admin/posts#index'  
-
   namespace :admin do
-    #root "admin/posts#index", as: :admin
   	resources :posts
+    root "posts#index"
   end
 
-  root "public/posts#index"  
+  root "public/posts#index", as: :public_root
 end

@@ -5,14 +5,13 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
   	if current_usuario.present?
-  		redirect_to admin_path
+  	 redirect_to admin_root_path
   	else
-  		redirect_to root_path
-  	end
-    #redirect_to root_path
+  		redirect_to public_root_path
+  	end    
   end
 
   def after_sign_in_path_for(resource)
-  	request.env['omniauth.origin'] || stored_location_for(resource) || admin_posts_path
+  	request.env['omniauth.origin'] || stored_location_for(resource) || admin_root_path
   end
 end
