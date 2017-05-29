@@ -2,7 +2,7 @@ class Public::PostsController < Public::PublicController
 	before_action :set_post, only: :show
 
 	def index
-    @posts = Post.all
+    @posts = Usuario.find(params[:usuario_id]).posts || Post.all
   end
 
   def show

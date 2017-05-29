@@ -29,7 +29,7 @@
                       </h3>
                     <% end %>
                     
-                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", autore_path(post.usuario) %> el <%= fecha_de_publicacion(post) %></span>
+                    <p class="post-meta">Posteado por <%= link_to "#{post.usuario.email}", posts_usuario_path(usuario_id: post.usuario.id) %> el <%= fecha_de_publicacion(post) %></span>
                 </div>
                 <hr>
             <% end %>
