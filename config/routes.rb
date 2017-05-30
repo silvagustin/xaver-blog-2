@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   scope module: :public do    
   	resources :posts, only: [ :index, :show ]
-  	resources :autores, only: :show
-
     get 'usuarios/:id/posts', to: 'posts#index', as: :posts_usuario
   end
 

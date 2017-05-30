@@ -7,7 +7,7 @@
                 <div class="post-heading">
                     <h1><%= @post.titulo %></h1>
                     <h2 class="subheading"><%= @post.descripcion %></h2>
-                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", autore_path(@post.usuario) %> el <%= fecha_de_publicacion(@post) %></span>
+                    <span class="meta">Posteado por <%= link_to "#{@post.usuario.email}", posts_usuario_path(@post.usuario) %> el <%= fecha_de_publicacion(@post) %></span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <%= link_to "Posts del autor", autore_path(@post.usuario), class: "btn btn-info" %>
+                <%= link_to "Posts del autor", posts_usuario_path(@post.usuario), class: "btn btn-info" %>
 
                 <hr>
                 <%= @post.cuerpo %>
