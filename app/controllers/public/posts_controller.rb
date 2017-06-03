@@ -5,6 +5,7 @@ class Public::PostsController < Public::PublicController
   load_resource :post, through: :usuario, shallow: true
 
 	def index
+    posts_recientes unless params[:posts_antiguos]
   end
 
   def show
@@ -15,5 +16,9 @@ class Public::PostsController < Public::PublicController
   private
     def set_post
     	@post = Post.find(params[:id])
+    end
+
+    def posts_recientes
+      @posts = @posts.limit(3)
     end
 end

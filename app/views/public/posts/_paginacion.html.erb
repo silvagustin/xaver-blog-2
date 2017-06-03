@@ -1,6 +1,13 @@
 <!-- Pager -->
 <ul class="pager">
     <li class="next">
-        <%#= link_to "Anteriores <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, posts_path(anteriores: true) %>
+    	<% unless params[:posts_antiguos] %>
+        <%#= link_to "Anteriores <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, public_root_path(posts_antiguos: true) %>
+        <% if current_page?(public_root_path) %>
+        	<%= link_to "Anteriores <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, public_root_path(posts_antiguos: true) %>
+        <% else %>
+        	<%= link_to "Anteriores <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>".html_safe, usuario_posts_path(posts_antiguos: true) %>
+        <% end %>
+      <% end %>
     </li>
 </ul>
