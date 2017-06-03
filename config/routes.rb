@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :usuarios, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
 
   scope module: :public do    
-  	resources :posts, only: [ :index, :show ]
-    get 'usuarios/:id/posts', to: 'posts#index', as: :posts_usuario
+    resources :usuarios, only: [] do
+      resources :posts, only: [ :index, :show ], shallow: true
+    end
   end
 
   namespace :admin do

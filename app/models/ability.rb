@@ -10,6 +10,7 @@ class Ability
       can :manage, :all
     else
       can :crud, Post, usuario_id: user.id
+      can :read, Post
     end
   end
 end

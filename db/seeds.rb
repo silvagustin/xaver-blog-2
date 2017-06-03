@@ -22,7 +22,7 @@ puts "USUARIOS CREADOS!"
 un_usuario = Usuario.find_by(email: "oby_lacueva@hotmail.com")
 otro_usuario = Usuario.find_by(email: "xaver@hotmail.com")
 
-6.times do
+50.times do
 	Post.create(usuario: un_usuario,
 						  titulo: Faker::Lorem.sentence,
 					    descripcion: Faker::Lorem.sentence(20),
