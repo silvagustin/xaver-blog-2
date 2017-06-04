@@ -17,6 +17,11 @@
 	  <%= f.input :titulo %>
 	  <%= f.input :descripcion %>
 	  <%= f.input :cuerpo %>
+
+      <% f.simple_fields_for :image do |i| %>
+        <%= i.input :image, as: :file %>
+      <% end %>
+
 	  <%= f.submit class: "btn btn-info" %>
 	<% end %>
 </div>

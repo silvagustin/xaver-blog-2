@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  	resources :posts
+  	resources :posts do
+      resources :images
+    end
     root "posts#index"
   end
 

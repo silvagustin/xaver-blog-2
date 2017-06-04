@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503145200) do
+ActiveRecord::Schema.define(version: 20170604213503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "image_name"
+    t.string   "image_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_images_on_post_id", using: :btree
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "titulo"
@@ -43,5 +52,6 @@ ActiveRecord::Schema.define(version: 20170503145200) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "posts"
   add_foreign_key "posts", "usuarios"
 end

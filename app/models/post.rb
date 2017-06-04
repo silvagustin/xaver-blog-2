@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
 	belongs_to :usuario
+	# Image
+	has_one :image
+	accepts_nested_attributes_for :image
 
 	validates :titulo, :cuerpo, presence: true
 
